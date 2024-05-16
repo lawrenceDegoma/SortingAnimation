@@ -146,7 +146,7 @@ void mergeSort(std::vector<int>& arr, int left, int right, sf::RenderWindow& win
         mergeSort(arr, mid + 1, right, window);
         merge(arr, left, mid, right, window);
         drawArray(arr, window);
-        sf::sleep(sf::milliseconds(15));
+        sf::sleep(sf::milliseconds(7));
     }
 }
 
@@ -172,7 +172,7 @@ void merge(std::vector<int>& arr, int left, int mid, int right, sf::RenderWindow
         ++k;
 
         drawArray(arr, window);
-        sf::sleep(sf::milliseconds(5));
+        sf::sleep(sf::milliseconds(2));
     }
 
     while (i < n1) {
@@ -242,7 +242,6 @@ void bubbleSort(std::vector<int>& nums, sf::RenderWindow& window) {
             if (nums[j] > nums[j+1]) {
                 std::swap(nums[j], nums[j+1]);
                 drawArray(nums, window);
-                sf::sleep(sf::milliseconds(0.005));
                 swapped = true;
             }
         }
