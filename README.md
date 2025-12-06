@@ -2,7 +2,7 @@
 
 An interactive C++ application that provides real-time visual demonstrations of popular sorting algorithms using the SFML graphics library. Watch how different sorting algorithms work step-by-step with animated bar charts.
 
-# Here's a demo of Merge Sort
+## Here's a demo of Merge Sort
 
 ![Sorting Animation Demo](demo.gif)
 
