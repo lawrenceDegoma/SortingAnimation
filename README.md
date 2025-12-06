@@ -18,13 +18,6 @@ An interactive C++ application that provides real-time visual demonstrations of 
 - **Visual Feedback**: Post-sort highlighting to show completion
 - **Educational Value**: Perfect for understanding algorithm behavior and complexity
 
-## Screenshots
-
-| Main Interface | Sorting in Progress | Completed Sort |
-|:-------------:|:------------------:|:-------------:|
-| ![Interface](screenshots/interface.png) | ![Sorting](screenshots/sorting.png) | ![Complete](screenshots/complete.png) |
-<!-- Add actual screenshots when available -->
-
 ## Quick Start
 
 ### Prerequisites
