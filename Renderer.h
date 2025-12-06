@@ -14,6 +14,8 @@ const int WINDOW_HEIGHT = 600;
 class Renderer {
 public:
     static void drawArray(const std::vector<int>& nums, sf::RenderWindow& window, sf::Color color);
+    static void drawArrayWithHighlights(const std::vector<int>& nums, sf::RenderWindow& window, 
+                                      const std::vector<int>& highlightIndices = {}, sf::Color highlightColor = sf::Color::Red);
     static void drawButton(sf::RenderWindow& window, const sf::Font& font, const std::string& text, const sf::Vector2f& position);
     static void highlightArray(const std::vector<int>& nums, sf::RenderWindow& window);
 };

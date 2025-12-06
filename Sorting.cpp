@@ -31,13 +31,13 @@ int Sorter::partition(std::vector<int>& nums, int left, int right, sf::RenderWin
 
         if (i < j) {
             std::swap(nums[i], nums[j]);
-            Renderer::drawArray(nums, window, sf::Color::Red);
+            Renderer::drawArrayWithHighlights(nums, window, {i, j}, sf::Color::Red);
             sf::sleep(sf::milliseconds(15));
         }
     }
 
     std::swap(nums[left], nums[j]);
-    Renderer::drawArray(nums, window, sf::Color::Red);
+    Renderer::drawArrayWithHighlights(nums, window, {left, j}, sf::Color::Red);
     sf::sleep(sf::milliseconds(15));
 
     return j;
@@ -53,7 +53,7 @@ void Sorter::mergeSort(std::vector<int>& arr, int left, int right, sf::RenderWin
 
         merge(arr, left, mid, right, window);
 
-        Renderer::drawArray(arr, window, sf::Color::Red);
+        Renderer::drawArray(arr, window, sf::Color::White);
         sf::sleep(sf::milliseconds(7));
     }
 }
@@ -79,7 +79,7 @@ void Sorter::merge(std::vector<int>& arr, int left, int mid, int right, sf::Rend
         }
         ++k;
 
-        Renderer::drawArray(arr, window, sf::Color::Red);
+        Renderer::drawArrayWithHighlights(arr, window, {k-1}, sf::Color::Red);
         sf::sleep(sf::milliseconds(2));
     }
 
@@ -88,7 +88,7 @@ void Sorter::merge(std::vector<int>& arr, int left, int mid, int right, sf::Rend
         ++i;
         ++k;
 
-        Renderer::drawArray(arr, window, sf::Color::Red);
+        Renderer::drawArrayWithHighlights(arr, window, {k-1}, sf::Color::Red);
         sf::sleep(sf::milliseconds(5));
     }
 
@@ -97,7 +97,7 @@ void Sorter::merge(std::vector<int>& arr, int left, int mid, int right, sf::Rend
         ++j;
         ++k;
 
-        Renderer::drawArray(arr, window, sf::Color::Red);
+        Renderer::drawArrayWithHighlights(arr, window, {k-1}, sf::Color::Red);
         sf::sleep(sf::milliseconds(5));
     }
 }
@@ -113,7 +113,8 @@ void Sorter::bubbleSort(std::vector<int>& nums, sf::RenderWindow& window) {
         for (int j = 0; j < n - i - 1; ++j) {
             if (nums[j] > nums[j + 1]) {
                 std::swap(nums[j], nums[j + 1]);
-                Renderer::drawArray(nums, window, sf::Color::Red);
+                Renderer::drawArrayWithHighlights(nums, window, {j, j + 1}, sf::Color::Red);
+                sf::sleep(sf::milliseconds(15));
                 swapped = true;
             }
         }
@@ -121,5 +122,5 @@ void Sorter::bubbleSort(std::vector<int>& nums, sf::RenderWindow& window) {
             break;
         }
     }
-    Renderer::drawArray(nums, window, sf::Color::Green);
+    Renderer::drawArray(nums, window, sf::Color::White);
 }

@@ -17,6 +17,30 @@ void Renderer::drawArray(const std::vector<int>& nums, sf::RenderWindow& window,
     window.display();
 }
 
+void Renderer::drawArrayWithHighlights(const std::vector<int>& nums, sf::RenderWindow& window, 
+                                     const std::vector<int>& highlightIndices, sf::Color highlightColor) {
+    window.clear();
+    float rectWidth = static_cast<float>(WINDOW_WIDTH) / static_cast<float>(ARRAY_SIZE);
+
+    for (int i = 0; i < ARRAY_SIZE; ++i) {
+        sf::RectangleShape rect(sf::Vector2f(rectWidth, nums[i]));
+        rect.setPosition(i * rectWidth, WINDOW_HEIGHT - nums[i]);
+        
+        // Check if this index should be highlighted
+        bool shouldHighlight = false;
+        for (int highlightIdx : highlightIndices) {
+            if (i == highlightIdx) {
+                shouldHighlight = true;
+                break;
+            }
+        }
+        
+        rect.setFillColor(shouldHighlight ? highlightColor : sf::Color::White);
+        window.draw(rect);
+    }
+    window.display();
+}
+
 void Renderer::drawButton(sf::RenderWindow& window, const sf::Font& font, const std::string& text, const sf::Vector2f& position){
     sf::Text buttonText(text, font, 20);
     buttonText.setPosition(position);
